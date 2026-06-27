@@ -1,0 +1,12 @@
+rules:
+
+- id: dangerous-eval
+
+  pattern: eval($X)
+
+  message: Dangerous use of eval()
+
+  severity: ERROR
+
+  languages:
+    - python

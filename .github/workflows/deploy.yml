@@ -1,4 +1,4 @@
-name: Cloud Pipeline
+name: DevSecOps Pipeline
 
 on:
   push:
@@ -7,18 +7,18 @@ on:
 
 jobs:
 
-  validate:
+  security:
 
     runs-on: ubuntu-latest
 
     steps:
 
-      - name: Checkout Code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+
+      - name: Run Gitleaks
+        uses: gitleaks/gitleaks-action@v2
 
       - name: Validate Website
         run: |
-          echo "Pipeline Running"
-          pwd
-          ls
+          echo "Security Passed"
           cat index.html

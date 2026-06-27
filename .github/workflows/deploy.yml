@@ -6,19 +6,18 @@ on:
       - main
 
 jobs:
-
   security:
-
     runs-on: ubuntu-latest
 
     steps:
-
       - uses: actions/checkout@v4
 
       - name: Run Gitleaks
         uses: gitleaks/gitleaks-action@v2
 
+      - name: Run Semgrep
+        uses: semgrep/semgrep-action@v1
+
       - name: Validate Website
         run: |
-          echo "Security Passed"
-          cat index.html
+          echo "Security Checks Completed"
